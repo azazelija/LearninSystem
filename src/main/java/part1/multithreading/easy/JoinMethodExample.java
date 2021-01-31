@@ -1,4 +1,4 @@
-package part1.multithreading;
+package part1.multithreading.easy;
 
 import part1.EnumExamples;
 
