@@ -52,7 +52,7 @@ class NetworkService implements Runnable{
         }
     }
 
-    void shutdownAndAwaitTermination(ExecutorService pool) {
+    void shutdownAndAwaitTermination() {
         pool.shutdown(); // Disable new tasks from being submitted
         try {
             // Wait a while for existing tasks to terminate
@@ -231,4 +231,9 @@ class Client implements Runnable{
  * Пул потоков, состоящий из одного потока.
  *
  * public static ExecutorService newSingleThreadExecutor()
+ */
+
+/**
+ * Класс-оболочка FutureTask представляет собой удобный механизм для превращения Callable
+ * одновременно в Future и Runnable, реализуя оба интерфейса.
  */
