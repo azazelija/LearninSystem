@@ -27,7 +27,7 @@ public class NestedClassesExample {
         System.out.println(innerClassExample);
 
         //не привязан к внешнему классу
-        NestedClassesExample.StaticNestedClass staticNestedClass = new NestedClassesExample.StaticNestedClass();
+        StaticNestedClass staticNestedClass = new StaticNestedClass();
         System.out.println(staticNestedClass);
 
         class MethodLocalInnerClass { //а зачем это нужно (не использовать бредятину)
