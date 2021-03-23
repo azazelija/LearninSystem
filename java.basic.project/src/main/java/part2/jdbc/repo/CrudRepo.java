@@ -2,15 +2,23 @@ package part2.jdbc.repo;
 
 public interface CrudRepo<T, ID> {
 
-    void create(T t);
+    <S extends T> S save(S var1);
 
-    void update();
+    <S extends T> Iterable<S> save(Iterable<S> var1);
 
-    void deleteById(ID id);
+    T findOne(ID var1);
+
+    boolean existsById(ID var1);
+
+    boolean exists(T var1);
+
+    Iterable<T> findAll();
+
+    long count();
+
+    void deleteById(ID var1);
+
+    void delete(T var1);
 
     void deleteAll();
-
-    <S extends T> S findById(ID id);
-
-    T findAll();
 }
