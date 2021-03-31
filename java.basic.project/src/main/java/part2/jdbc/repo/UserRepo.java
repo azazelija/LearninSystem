@@ -1,5 +1,6 @@
 package part2.jdbc.repo;
 
+import part2.CrudRepo;
 import part2.jdbc.dto.User;
 import part2.jdbc.repo.sequence.SequenceGenerator;
 

@@ -1,0 +1,11 @@
+<!--За нас это сделает спринг аннотациями-->
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
+    <class name="part2.hibernate.dto.User" table="User">
+        <id column="id" name="id" type="java.lang.Long">
+            <generator class="increment"></generator>
+        </id>
+        <property name="firstName" column="first_name" type="java.lang.String"></property>
+        <property name="LastName" column="last_name" type="java.lang.String"></property>
+        <property name="birthDate" column="birth_date" type="java.sql.Date"></property>
+    </class>
+</hibernate-mapping>

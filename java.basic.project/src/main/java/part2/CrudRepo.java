@@ -1,4 +1,4 @@
-package part2.jdbc.repo;
+package part2;
 
 public interface CrudRepo<T, ID> {
 
