@@ -4,17 +4,6 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
     <context:component-scan base-package="spring5.prof.book.configuration.xmlwithannotation"></context:component-scan>
-    <context:component-scan base-package="springDAO"></context:component-scan>
-
-    <import resource="spring/datasource-dbcp.xml"/>
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <constructor-arg type="javax.sql.DataSource" ref="dataSource"/>
-    </bean>
-
-    <bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
-        <constructor-arg type="javax.sql.DataSource" ref="dataSource"/>
-    </bean>
-
 
     <bean id="renderer" class="spring5.prof.book.configuration.xml.MessageRenderer"></bean>
     <bean id="provider" class="spring5.prof.book.configuration.xml.MessageProvider"></bean>

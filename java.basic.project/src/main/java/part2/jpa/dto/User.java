@@ -27,7 +27,7 @@ public class User {
     String firstName;
 
     @Column("last_name")
-    String LastName;
+    String lastName;
 
     @Column("birth_date")
     Date birthDate;
