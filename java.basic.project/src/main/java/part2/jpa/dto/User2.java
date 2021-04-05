@@ -2,6 +2,7 @@ package part2.jpa.dto;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -15,33 +16,32 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity
-@Table(name = "User")
-public class User {
+@Table(name = "client")
+public class User2 {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column("id")
+    @Column(name = "id")
     Long id;
 
-    @Column("first_name")
+    @Column(name = "first_name")
     String firstName;
 
-    @Column("last_name")
+    @Column(name = "last_name")
     String lastName;
 
-    @Column("birth_date")
+    @Column(name = "birth_date")
     Date birthDate;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(firstName, user.firstName) && Objects.equals(LastName, user.LastName) && Objects.equals(birthDate, user.birthDate);
+        User2 user2 = (User2) o;
+        return Objects.equals(firstName, user2.firstName) && Objects.equals(lastName, user2.lastName) && Objects.equals(birthDate, user2.birthDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, LastName, birthDate);
+        return Objects.hash(firstName, lastName, birthDate);
     }
 }

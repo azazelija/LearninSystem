@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 import part2.jdbc.connection.ConnectionManager;
 import part2.jdbc.dto.User;
 import part2.jdbc.repo.UserRepo;
@@ -8,7 +7,6 @@ import part2.jdbc.repo.UserRepo;
 import java.sql.Connection;
 import java.sql.Date;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,7 +15,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserRepoTest {
 
     Connection connection;
-    UserRepo userRepo;
+
+    UserRepo userRepoJDBC;
 
     @BeforeEach
     void setUp() {
@@ -27,9 +26,9 @@ class UserRepoTest {
 
         ConnectionManager manager = new ConnectionManager();
         connection = manager.getConnection(url, login, pass);
-        userRepo = new UserRepo(connection);
+        userRepoJDBC = new UserRepo(connection);
 
-        userRepo.createTableDropIfExists();
+        userRepoJDBC.createTableDropIfExists();
     }
 
     @Test
@@ -41,7 +40,7 @@ class UserRepoTest {
                 .setDate(2015, 1, 15).build();
         user.setBirthDate(new Date(calendar.getTimeInMillis()));
 
-        assertDoesNotThrow(() -> (userRepo.save(user)));
+        assertDoesNotThrow(() -> (userRepoJDBC.save(user)));
     }
 
     @Test
@@ -64,7 +63,7 @@ class UserRepoTest {
         list.add(user);
         list.add(user2);
 
-        assertDoesNotThrow(() -> (userRepo.save(list)));
+        assertDoesNotThrow(() -> (userRepoJDBC.save(list)));
     }
 
     @Test
@@ -76,9 +75,9 @@ class UserRepoTest {
                 .setDate(2015, 1, 15).build();
         user.setBirthDate(new Date(calendar.getTimeInMillis()));
 
-        userRepo.save(user);
+        userRepoJDBC.save(user);
 
-        assertEquals(true, userRepo.existsById(1L));
-        assertEquals(true, userRepo.exists(user));
+        assertEquals(true, userRepoJDBC.existsById(1L));
+        assertEquals(true, userRepoJDBC.exists(user));
     }
 }
